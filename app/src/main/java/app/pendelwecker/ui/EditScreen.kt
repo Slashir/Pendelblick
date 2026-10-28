@@ -79,8 +79,8 @@ fun EditScreen(
     var showTime by remember { mutableStateOf(false) }
 
     fun update(p: CommuteProfile) {
-        // Andere Halte: eine gewählte Verbindung mit Umstieg passt nicht mehr.
-        val q = if (p.fromStopId != edit.fromStopId || p.toStopId != edit.toStopId) p.copy(legs = emptyList()) else p
+        // Andere Halte: eine gewählte Verbindung (Umstiege, Ankunftszeit) passt nicht mehr.
+        val q = if (p.fromStopId != edit.fromStopId || p.toStopId != edit.toStopId) p.copy(arrival = "", legs = emptyList()) else p
         // Wer die Strecke zum ersten Mal vollständig einträgt, will auch geweckt werden.
         edit = if (!edit.isComplete && q.isComplete && !initial.isComplete) q.copy(active = true) else q
     }

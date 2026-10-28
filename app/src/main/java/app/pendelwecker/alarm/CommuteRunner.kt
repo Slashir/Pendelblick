@@ -398,11 +398,14 @@ object CommuteRunner {
     ): List<Connection> {
         val start = dep.minus(Duration.ofMinutes(15))
         val deps = api.stopTimes(fromStopId, start, arriveBy = false, windowSeconds = 120 * 60, n = 150)
-        val arrs = if (arrival != null) {
-            api.stopTimes(toStopId, arrival.minus(Duration.ofMinutes(20)), arriveBy = true, windowSeconds = 180 * 60, n = 200)
-        } else {
-            api.stopTimes(toStopId, start, arriveBy = true, windowSeconds = 240 * 60, n = 300)
+        if (arrival != null) {
+            val arrs = api.stopTimes(toStopId, arrival.minus(Duration.ofMinutes(20)), arriveBy = true, windowSeconds = 180 * 60, n = 200)
+            val conns = CommuteChecker.buildConnections(deps.stopTimes, arrs.stopTimes)
+            // Gespeicherte Ankunft kann veraltet sein (Fahrplanwechsel, Bauarbeiten): Kommt der Zug
+            // jetzt früher an, fehlt er in der Liste. Dann ab der Abfahrt noch einmal suchen.
+            if (conns.any { Duration.between(it.plannedDep, dep).abs() <= Duration.ofMinutes(2) }) return conns
         }
+        val arrs = api.stopTimes(toStopId, start, arriveBy = true, windowSeconds = 240 * 60, n = 300)
         return CommuteChecker.buildConnections(deps.stopTimes, arrs.stopTimes)
     }
 
