@@ -10,8 +10,17 @@ Dir hilft die App? Über Ko-fi kannst du mir einen Kaffee ausgeben:
 
 Kein Konto, keine Werbung, kein Tracking. Deine Fahrten bleiben auf deinem Handy.
 
-> **Noch im Test:** Pendelblick wird gerade im Alltag erprobt. Die erste Version zum Herunterladen
-> erscheint bald unter [Releases](https://github.com/Slashir/Pendelblick/releases).
+## Installation
+
+1. Unter [Releases](https://github.com/Slashir/Pendelblick/releases) die neueste
+   `pendelblick-v….apk` auf dem Handy herunterladen.
+2. Datei öffnen. Android fragt einmal, ob der Browser Apps installieren darf: erlauben.
+3. App starten und deine Fahrt anlegen (siehe unten).
+
+Neue Versionen installieren sich genauso über die alte, deine Fahrten bleiben erhalten.
+
+> **Noch im Test:** Die Versionen 0.x sind Vorabversionen, die gerade im Pendelalltag erprobt
+> werden. Wenn dir etwas auffällt, schreib gern ein [Issue](https://github.com/Slashir/Pendelblick/issues).
 
 ## Was die App kann
 

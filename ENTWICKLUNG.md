@@ -99,6 +99,18 @@ Am besten an einem Tag mit Störung laufen lassen und mit der VVO-App vergleiche
 
 Lokal mit JDK 21 getestet; `compileSdk`/`targetSdk` 37 (AGP 9.3 unterstützt bis API 37).
 
+## Release
+
+Der Workflow `release.yml` baut bei einem Tag `v*` die signierte APK der Variante `eigen` und hängt sie
+als `pendelblick-<tag>.apk` an ein GitHub-Release (0.x als Vorabversion). Die Signatur kommt aus den
+Secrets `SIGNING_KEYSTORE_BASE64`, `SIGNING_STORE_PASSWORD`, `SIGNING_KEY_ALIAS` und
+`SIGNING_KEY_PASSWORD`. Ablauf:
+
+1. `versionCode` erhöhen und `versionName` anpassen (`app/build.gradle.kts`), committen, pushen.
+2. `git tag v0.1.1 && git push origin v0.1.1`
+
+Die Variante `travic` wird nicht veröffentlicht.
+
 ## Verwendete Versionen (geprüft am 27.10.2026)
 
 | Komponente | Version | Quelle |

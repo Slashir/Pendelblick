@@ -4,6 +4,9 @@ plugins {
     id("org.jetbrains.kotlin.plugin.serialization")
 }
 
+// Signatur für Release-Builds kommt aus Umgebungsvariablen (GitHub Secrets, siehe ENTWICKLUNG.md).
+val keystorePath: String? = System.getenv("SIGNING_KEYSTORE_PATH")
+
 android {
     namespace = "app.pendelwecker"
     compileSdk = 37
@@ -26,6 +29,27 @@ android {
         buildConfigField("String", "CONTACT", "\"https://github.com/Slashir/Pendelblick\"")
         // Freiwillige Unterstützung des Entwicklers (Ko-fi). Leer = Knopf ausgeblendet.
         buildConfigField("String", "DONATE_URL", "\"https://ko-fi.com/slashir\"")
+    }
+
+    signingConfigs {
+        create("release") {
+            if (keystorePath != null) {
+                storeFile = file(keystorePath)
+                storePassword = System.getenv("SIGNING_STORE_PASSWORD")
+                keyAlias = System.getenv("SIGNING_KEY_ALIAS")
+                keyPassword = System.getenv("SIGNING_KEY_PASSWORD")
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            // Ohne Verkleinerung: R8 bräuchte eigene Regeln für Serialisierung und MapLibre.
+            isMinifyEnabled = false
+            if (keystorePath != null) {
+                signingConfig = signingConfigs.getByName("release")
+            }
+        }
     }
 
     buildFeatures {
