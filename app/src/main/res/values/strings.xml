@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Pendelblick</string>
+    <string name="map_title">Live-Karte</string>
+    <string name="widget_name">Pendelblick</string>
+    <string name="widget_description">Zeigt, ob deine Pendelverbindung pünktlich ist</string>
+</resources>
