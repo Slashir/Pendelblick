@@ -19,16 +19,25 @@ import app.pendelwecker.domain.Status
 import app.pendelwecker.domain.StatusSnapshot
 
 object Notifier {
-    const val CHANNEL_ALARM = "pendel_alarm"
-    const val CHANNEL_INFO = "pendel_info"
+    /*
+     * Ton, Vibration und Wichtigkeit eines Kanals lassen sich nach dem Anlegen nicht mehr ändern.
+     * Deshalb neue Ids, wenn sich daran etwas ändert; die alten werden gelöscht.
+     * 0.1.2: Warnungen vibrieren auch, "pünktlich" macht einen Ton (bisher still einsortiert).
+     */
+    const val CHANNEL_ALARM = "pendel_warnung"
+    const val CHANNEL_INFO = "pendel_puenktlich"
+    private val OLD_CHANNELS = listOf("pendel_alarm", "pendel_info")
 
     fun createChannels(context: Context) {
         val nm = context.getSystemService(NotificationManager::class.java) ?: return
+        OLD_CHANNELS.forEach(nm::deleteNotificationChannel)
         nm.createNotificationChannel(
             NotificationChannel(CHANNEL_ALARM, "Ausfälle und Verspätungen", NotificationManager.IMPORTANCE_HIGH)
+                .apply { enableVibration(true) }
         )
+        // Nur wer "auch bei pünktlich melden" einschaltet, bekommt hier etwas: Ton ja, aufspringen nein.
         nm.createNotificationChannel(
-            NotificationChannel(CHANNEL_INFO, "Alles pünktlich", NotificationManager.IMPORTANCE_LOW)
+            NotificationChannel(CHANNEL_INFO, "Alles pünktlich", NotificationManager.IMPORTANCE_DEFAULT)
         )
     }
 
@@ -93,7 +102,7 @@ object Notifier {
             .setSilent(silent)
             .setContentIntent(open)
             .setAutoCancel(true)
-            .setPriority(if (problem) NotificationCompat.PRIORITY_HIGH else NotificationCompat.PRIORITY_LOW)
+            .setPriority(if (problem) NotificationCompat.PRIORITY_HIGH else NotificationCompat.PRIORITY_DEFAULT)
             .build()
         NotificationManagerCompat.from(context).notify(1000 + p.id, n)
     }
