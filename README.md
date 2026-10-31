@@ -10,6 +10,12 @@ Dir hilft die App? Über Ko-fi kannst du mir einen Kaffee ausgeben:
 
 Kein Konto, keine Werbung, kein Tracking. Deine Fahrten bleiben auf deinem Handy.
 
+<p align="center">
+  <img src="docs/bilder/startseite.png" width="270" alt="Startseite: die S1 von Pirna nach Radebeul Ost fährt pünktlich, darunter die Live-Karte">
+  &nbsp;
+  <img src="docs/bilder/livekarte.png" width="270" alt="Live-Karte der S1 zwischen Pirna und Radebeul mit Verspätungen von 1, 7 und 16 Minuten">
+</p>
+
 ## Installation
 
 1. Unter [Releases](https://github.com/Slashir/Pendelblick/releases) die neueste
