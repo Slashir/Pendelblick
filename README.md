@@ -48,6 +48,20 @@ Neue Versionen installieren sich genauso über die alte, deine Fahrten bleiben e
   Positionen werden aus Fahrplan und Verspätung berechnet, es ist kein GPS-Tracking.
 - **Widget** für den Startbildschirm und **dunkles Design**.
 
+## Wo die App funktioniert
+
+Pendelblick nutzt die Daten von [Transitous](https://transitous.org). Für Deutschland ist das der
+bundesweite Fahrplan von DELFI e. V. Darin stecken alle Verkehrsverbünde, von der S-Bahn bis zum
+Stadtbus. Du musst also keinen Verbund auswählen.
+
+Ob Verspätungen und Ausfälle in Echtzeit ankommen, hängt von deinem Verkehrsunternehmen ab. In
+vielen Regionen klappt das, aber nicht überall. Für Berlin-Brandenburg (VBB), Bremen/Niedersachsen
+(VBN) und Karlsruhe (KVV) bindet Transitous zusätzlich eigene Echtzeitdaten ein. Fehlt die
+Echtzeit, zeigt die App „Fährt laut Plan“. Auf der Live-Karte ist das Fahrzeug dann grau.
+
+Transitous deckt auch viele andere Länder ab. Grundsätzlich funktioniert Pendelblick auch dort.
+Erprobt ist die App bisher nur in Deutschland.
+
 ## So richtest du sie ein
 
 1. Fahrt anlegen: Start- und Zielhaltestelle suchen.
