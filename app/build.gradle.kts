@@ -15,8 +15,8 @@ android {
         applicationId = "app.pendelwecker"
         minSdk = 26
         targetSdk = 37
-        versionCode = 3
-        versionName = "0.1.2"
+        versionCode = 4
+        versionName = "1.0.0"
 
         // MapLibre bringt native Bibliotheken je Prozessor mit; ältere 32-Bit-x86-Geräte gibt es praktisch nicht.
         // Mit -Pabis=arm64-v8a lässt sich eine kleinere APK für ein bestimmtes Gerät bauen.
