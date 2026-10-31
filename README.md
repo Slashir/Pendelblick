@@ -78,7 +78,6 @@ Fertig. Ab jetzt prüft Pendelblick im Hintergrund, du musst die App nicht öffn
   diese Erlaubnis prüft die App bis zu 10 Minuten früher.
 - **Energiesparen:** Manche Hersteller bremsen Apps im Hintergrund stark aus. Kommen Meldungen zu
   spät, nimm Pendelblick in den Akku-Einstellungen von der Optimierung aus.
-- **Echtzeitdaten** gibt es nicht für jede Linie. Fehlen sie, zeigt die App „Fährt laut Plan“.
 - **Ohne Gewähr:** Die Fahrplandaten kommen von Transitous, einem ehrenamtlich betriebenen Dienst.
   Bei wichtigen Terminen lohnt sich zusätzlich ein Blick in die App deines Verkehrsverbunds.
 
