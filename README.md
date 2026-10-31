@@ -25,9 +25,6 @@ Kein Konto, keine Werbung, kein Tracking. Deine Fahrten bleiben auf deinem Handy
 
 Neue Versionen installieren sich genauso über die alte, deine Fahrten bleiben erhalten.
 
-> **Noch im Test:** Die Versionen 0.x sind Vorabversionen, die gerade im Pendelalltag erprobt
-> werden. Wenn dir etwas auffällt, schreib gern ein [Issue](https://github.com/Slashir/Pendelblick/issues).
-
 ## Was die App kann
 
 - **Antwort auf einen Blick:** Oben auf der Startseite steht, wie es um deine nächste Fahrt steht:
